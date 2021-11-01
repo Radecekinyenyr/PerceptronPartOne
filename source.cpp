@@ -69,7 +69,7 @@ public:
 	{
 		weights = new float[n];
 
-		for (int i = 0; i <= sizeof(*weights) / sizeof(weights[0]) + 1; ++i)
+		for (int i = 0; i < sizeof(*weights); ++i)
 		{
 			weights[i] = randomer1();  // first minimum and after maximum
 			std::cout << "random hodnota perceptronu je: " << weights[i] << std::endl;
@@ -79,7 +79,7 @@ public:
 	int guess(float inputs[])
 	{
 		float sum = 0;
-		for (int i = 0; i <= sizeof(*weights) / sizeof(weights[0]) + 1; ++i)
+		for (int i = 0; i < sizeof(*weights); ++i)
 		{
 			sum += inputs[i] * weights[i];
 
@@ -98,7 +98,7 @@ public:
 		int guess = this->guess(inputs);
 		int error = target - guess;
 
-		for (int i = 0; i <= sizeof(*weights) / sizeof(weights[0]) + 1; ++i)
+		for (int i = 0; i < sizeof(*weights); ++i)
 		{
 			weights[i] += error * inputs[i] * learningRate;
 
